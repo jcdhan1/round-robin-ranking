@@ -1,24 +1,24 @@
-type Result = {
+export type Result = {
     id: number;
     score: number;
 };
 
-export default class Team {
+export class Team {
     /**
      * A numeric identifier for the team.
      */
-    private id: number;
+    private _id: number;
 
     /**
      * A text-based identifier for the team.
      */
-    private name: string;
+    private _name: string;
 
     /**
      * An array of home game results against an opponent team.
      * @defaultValue `[]`
      */
-    private results: Array<Result> = [];
+    private _results: Array<Result> = [];
 
     /**
      * Initialises a Team.
@@ -27,7 +27,23 @@ export default class Team {
      * @param name 
      */
     constructor(id: number, name: string) {
-        this.id = id;
-        this.name = name;
+        this._id = id;
+        this._name = name;
+    }
+
+    public get id(): number {
+        return this._id;
+    }
+
+    public get name(): string {
+        return this._name;
+    }
+
+    public get results(): Array<Result> {
+        return this._results;
+    }
+
+    public set results(results: Array<Result>) {
+        this._results = results;
     }
 }
