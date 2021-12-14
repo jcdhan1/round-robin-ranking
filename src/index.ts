@@ -87,7 +87,8 @@ export default class RoundRobinRanking {
                 else {
                     // Less matches if _homeAway is false.
                     if (this._matches.findIndex((element) => {
-                        return (element.home === a && element.away === h);
+                        return (element.home === a && element.away === h)
+                            || (element.home === h && element.away === a);
                     }) < 0) {
                         this._matches.push(newMatch);
                     }
